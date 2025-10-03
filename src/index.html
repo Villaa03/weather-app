@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Pronóstico del Clima</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Header con título y buscador -->
+    <header>
+        <div class="container">
+            <h1>🌤️ Weather App</h1>
+            <p class="subtitle">Consulta el clima de cualquier ciudad del mundo</p>
+            
+            <!-- Barra de búsqueda -->
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="location-input" 
+                    placeholder="Escribe una ciudad... (ej: Bogotá, Londres, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="search-button">🔍 Buscar</button>
+            </div>
+
+            <!-- Selector de unidades -->
+            <div class="units-selector">
+                <label for="units">Unidades:</label>
+                <select id="units">
+                    <option value="metric">Métrico (°C, km/h)</option>
+                    <option value="imperial">Imperial (°F, mph)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main class="container">
+        <!-- Indicador de carga -->
+        <div id="loading" class="loading hidden">
+            <p>⏳ Cargando datos del clima...</p>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div id="error" class="error hidden">
+            <p id="error-message"></p>
+        </div>
+
+        <!-- Clima actual -->
+        <section id="current-weather" class="current-weather hidden">
+            <div class="current-weather-top">
+                <div class="location-info">
+                    <h2 id="city-name">---</h2>
+                    <p id="date-time">---</p>
+                    <p id="country">---</p>
+                </div>
+            </div>
+
+            <div class="weather-main-info">
+                <div class="temperature-display">
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <div class="temp-value" id="temperature">--°</div>
+                    <p class="weather-description" id="description">---</p>
+                </div>
+            </div>
+
+            <!-- Detalles adicionales -->
+            <div class="weather-details">
+                <div class="detail-card">
+                    <h3>Sensación Térmica</h3>
+                    <p id="feels-like">--°</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Humedad</h3>
+                    <p id="humidity">--%</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Viento</h3>
+                    <p id="wind-speed">-- km/h</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Presión</h3>
+                    <p id="pressure">-- hPa</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pronóstico de 5 días -->
+        <section id="forecast-section" class="forecast-section hidden">
+            <h2>📅 Pronóstico de 5 días</h2>
+            <div id="forecast-grid" class="forecast-grid">
+                <!-- Las tarjetas del pronóstico se generarán con JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Weather App | Datos proporcionados por OpenWeatherMap API</p>
+    </footer>
+
+    <!-- Script de JavaScript -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>
